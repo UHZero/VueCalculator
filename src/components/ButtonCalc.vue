@@ -1,5 +1,5 @@
 <template>
-    <div class="button" :class="{ double, triple, operation }">
+    <div @click="$emit('onClick', label)" class="button" :class="{ double, triple, operation }">
         {{ label }}
     </div>
 </template>
@@ -8,9 +8,9 @@
 export default {
     props: {
         label: {},
-        operation: Boolean,
-        double: Boolean,
-        triple: Boolean
+        operation: { type: Boolean },
+        double: { type: Boolean },
+        triple: { type: Boolean }
     }
 }
 </script>
@@ -28,6 +28,7 @@ export default {
         border-right: var(--border-button);
         border-bottom: var(--border-button);
         outline: none;
+        color: #000;
     }
 
     .button:active {
